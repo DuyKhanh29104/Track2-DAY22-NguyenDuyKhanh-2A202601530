@@ -15,12 +15,12 @@ pip install -r requirements.txt
 langchain>=0.3.0
 langchain-core>=0.3.0
 langchain-openai>=0.3.0
-langchain-community>=0.3.0
+langchain-community==0.3.31
 langchain-text-splitters>=0.3.0
 langsmith>=0.2.0
 openai>=1.0.0
 faiss-cpu>=1.7.0
-ragas>=0.4.0
+ragas==0.4.3
 guardrails-ai>=0.5.0
 python-dotenv>=1.0.0
 tiktoken>=0.5.0
@@ -48,7 +48,8 @@ numpy>=1.25.0
 
 ## Important Version Notes
 
-### RAGAS 0.4.x
+### RAGAS 0.4.3
+- Pin `langchain-community==0.3.31` because RAGAS 0.4.3 imports its legacy VertexAI module.
 - Use `from ragas.metrics import faithfulness, answer_relevancy, ...` (NOT from `ragas.metrics.collections`)
 - `result[metric_name]` returns a **list** of floats for multiple samples — use `numpy.mean()` to average
 - Pass `llm=` and `embeddings=` to the `evaluate()` function, not to metric constructors
